@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07111f">
+  <meta name="description" content="Arena Shopp — recargas de diamantes Free Fire em Angola. Consulta os pacotes e faz o teu pedido pelo WhatsApp.">
+  <title>Arena Shopp | Recargas Free Fire</title>
+  <style>
+    :root {
+      --bg: #050a12;
+      --panel: #0c1727;
+      --panel-2: #101f33;
+      --blue: #12a9ff;
+      --blue-light: #67d2ff;
+      --white: #f4f8ff;
+      --muted: #a8b8ce;
+      --gold: #ffd166;
+      --border: #214567;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--white);
+      background: radial-gradient(ellipse at top, #102947 0, var(--bg) 48%);
+      font-family: Arial, Helvetica, sans-serif; line-height: 1.5;
+    }
+    a { color: inherit; }
+    .container { width: min(1120px, 92%); margin: 0 auto; }
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(5,10,18,.94); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand { font-weight: 900; letter-spacing: .5px; font-size: 1.3rem; }
+    .brand span { color: var(--blue-light); }
+    nav { display: flex; gap: 18px; align-items: center; }
+    nav a { text-decoration: none; color: var(--muted); font-size: .95rem; }
+    nav a:hover { color: var(--blue-light); }
+    .btn {
+      display: inline-flex; justify-content: center; align-items: center; gap: 8px;
+      padding: 12px 17px; border-radius: 10px; font-weight: 800;
+      text-decoration: none; border: 1px solid transparent; cursor: pointer;
+      transition: transform .15s ease, background .15s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: linear-gradient(135deg, #0786e8, #16c4ff); color: #03101d; }
+    .btn-outline { border-color: var(--border); color: var(--blue-light); background: #081321; }
+    .hero { padding: 76px 0 54px; }
+    .hero-grid { display: grid; grid-template-columns: 1.2fr .8fr; align-items: center; gap: 36px; }
+    .eyebrow { color: var(--blue-light); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: .8rem; }
+    h1 { font-size: clamp(2.4rem, 6vw, 4.7rem); line-height: 1.02; margin: 12px 0 18px; letter-spacing: -2px; }
+    h1 span { color: var(--blue-light); }
+    .hero p { color: var(--muted); max-width: 620px; font-size: 1.1rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 25px; }
+    .hero-art {
+      min-height: 300px; border: 1px solid var(--border); border-radius: 24px;
+      background: radial-gradient(circle at 50% 40%, #13568a, #0b1a2b 52%, #060b13 78%);
+      display: grid; place-items: center; text-align: center; padding: 25px;
+      box-shadow: 0 0 55px rgba(18,169,255,.12), inset 0 0 35px rgba(18,169,255,.08);
+    }
+    .diamond { font-size: 6rem; filter: drop-shadow(0 0 18px #12a9ff); }
+    .hero-art strong { display: block; font-size: 1.45rem; }
+    .hero-art small { color: var(--muted); }
+    .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 0 0 58px; }
+    .feature { padding: 17px; background: rgba(12,23,39,.8); border: 1px solid var(--border); border-radius: 14px; }
+    .feature b { display: block; margin-bottom: 4px; }
+    .feature span { color: var(--muted); font-size: .9rem; }
+    section { padding: 26px 0 54px; }
+    .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 20px; margin-bottom: 22px; }
+    h2 { margin: 0; font-size: clamp(1.7rem, 4vw, 2.4rem); }
+    .section-heading p { color: var(--muted); margin: 6px 0 0; }
+    .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .product {
+      background: linear-gradient(160deg, var(--panel-2), var(--panel));
+      border: 1px solid var(--border); border-radius: 18px; padding: 21px;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .product:hover { border-color: var(--blue); }
+    .product .gem { font-size: 2.5rem; }
+    .product h3 { margin: 0; font-size: 1.2rem; }
+    .bonus { color: var(--blue-light); font-size: .92rem; }
+    .price { color: var(--gold); font-weight: 900; font-size: 1.65rem; margin: 3px 0 8px; }
+    .product .btn { width: 100%; margin-top: auto; }
+    .other-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .other-card { border: 1px solid var(--border); background: var(--panel); border-radius: 15px; padding: 20px; }
+    .other-card h3 { margin: 0 0 8px; }
+    .other-card strong { color: var(--gold); font-size: 1.35rem; }
+    .payments { display: flex; flex-wrap: wrap; gap: 10px; }
+    .payment { border: 1px solid var(--border); background: var(--panel); color: var(--muted); border-radius: 9px; padding: 10px 14px; }
+    .notice { border-left: 3px solid var(--blue); background: #0b1929; padding: 15px 18px; color: var(--muted); border-radius: 0 10px 10px 0; }
+    footer { border-top: 1px solid var(--border); padding: 28px 0; color: var(--muted); }
+    .footer-row { display: flex; justify-content: space-between; align-items: center; gap: 15px; flex-wrap: wrap; }
+    .wa-float { position: fixed; right: 18px; bottom: 18px; z-index: 9; box-shadow: 0 8px 30px #0009; }
+    @media (max-width: 760px) {
+      .nav { padding: 14px 0; align-items: flex-start; flex-direction: column; }
+      nav { flex-wrap: wrap; gap: 12px; }
+      .hero { padding-top: 48px; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-art { min-height: 220px; }
+      .features { grid-template-columns: 1fr; margin-bottom: 36px; }
+      .product-grid, .other-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .section-heading { align-items: flex-start; flex-direction: column; }
+    }
+    @media (max-width: 440px) {
+      .product-grid, .other-grid { grid-template-columns: 1fr; }
+      .diamond { font-size: 4.5rem; }
+      .price { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#inicio" aria-label="Arena Shopp início">ARENA <span>SHOPP</span> 💎</a>
+      <nav aria-label="Navegação principal">
+        <a href="#inicio">Início</a>
+        <a href="#recargas">Recargas</a>
+        <a href="#extras">Outras ofertas</a>
+        <a href="#pagamentos">Pagamentos</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Recargas Free Fire • Angola</div>
+          <h1>ARENA <span>SHOPP</span></h1>
+          <p>Brilha com poder! Consulta os pacotes de diamantes, escolhe a tua recarga e envia o pedido diretamente pelo WhatsApp.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#recargas">💎 Ver pacotes</a>
+            <a class="btn btn-outline" href="https://wa.me/244930412025?text=Ola%2C%20Arena%20Shopp!%20Quero%20informacoes%20sobre%20as%20recargas." target="_blank" rel="noopener">WhatsApp ↗</a>
+          </div>
+        </div>
+        <div class="hero-art" aria-label="Ilustração de diamantes">
+          <div>
+            <div class="diamond">💎</div>
+            <strong>RECARGAS DE DIAMANTES</strong>
+            <small>Rápido • Atendimento pelo WhatsApp</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container features">
+      <div class="feature"><b>💎 Pacotes claros</b><span>Preços apresentados em kwanzas.</span></div>
+      <div class="feature"><b>📲 Pedido pelo WhatsApp</b><span>A mensagem vem preenchida com o pacote escolhido.</span></div>
+      <div class="feature"><b>🤝 Confirmação antes do pagamento</b><span>Confirma disponibilidade, preço e condições com a loja.</span></div>
+    </div>
+
+    <section id="recargas">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <h2>💎 Recargas de diamantes</h2>
+            <p>Escolhe o pacote que pretendes encomendar.</p>
+          </div>
+        </div>
+        <div class="product-grid" id="product-grid"></div>
+      </div>
+    </section>
+
+    <section id="extras">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <h2>⭐ Outras ofertas</h2>
+            <p>Consulta também estas opções pelo WhatsApp.</p>
+          </div>
+        </div>
+        <div class="other-grid" id="other-grid"></div>
+        <p class="notice" style="margin-top:18px">Nota: confirma a disponibilidade e os preços atualizados antes de efetuar o pagamento. As recargas dependem dos procedimentos oficiais e dos dados corretos do jogador.</p>
+      </div>
+    </section>
+
+    <section id="pagamentos">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <h2>💳 Formas de pagamento</h2>
+            <p>Confirma com o atendimento quais estão disponíveis para o teu pedido.</p>
+          </div>
+        </div>
+        <div class="payments">
+          <span class="payment">Express</span>
+          <span class="payment">KWiK</span>
+          <span class="payment">PayPay</span>
+          <span class="payment">Transferência bancária</span>
+          <span class="payment">Unitel Money</span>
+          <span class="payment">Voucher</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <div><strong>ARENA SHOPP 💎</strong><br><small>Recargas Free Fire • Angola</small></div>
+      <small>© <span id="year"></span> Arena Shopp. Todos os direitos reservados.</small>
+    </div>
+  </footer>
+
+  <a class="btn btn-primary wa-float" href="https://wa.me/244930412025?text=Ola%2C%20Arena%20Shopp!%20Quero%20fazer%20uma%20encomenda." target="_blank" rel="noopener" aria-label="Falar com a Arena Shopp no WhatsApp">☏ WhatsApp</a>
+
+  <script>
+    // Preços transcritos da tabela fornecida pelo proprietário da loja.
+    // Confirma disponibilidade e valores antes de publicar.
+    const whatsapp = "244930412025";
+    const packages = [
+      { diamonds: "100", bonus: "+20 de bónus", price: "1.300 Kz", messagePrice: "1300" },
+      { diamonds: "310", bonus: "+52 de bónus", price: "3.600 Kz", messagePrice: "3600" },
+      { diamonds: "520", bonus: "+104 de bónus", price: "5.350 Kz", messagePrice: "5350" },
+      { diamonds: "1.060", bonus: "+212 de bónus", price: "11.500 Kz", messagePrice: "11500" },
+      { diamonds: "2.180", bonus: "+436 de bónus", price: "21.300 Kz", messagePrice: "21300" },
+      { diamonds: "5.600", bonus: "+1.120 de bónus", price: "53.000 Kz", messagePrice: "53000" }
+    ];
+    const extras = [
+      { name: "Assinatura semanal", price: "2.700 Kz", message: "Assinatura semanal por 2700 Kz" },
+      { name: "Assinatura mensal", price: "12.500 Kz", message: "Assinatura mensal por 12500 Kz" },
+      { name: "Passe Booyah", price: "1.400 Kz", message: "Passe Booyah por 1400 Kz" }
+    ];
+    function waLink(message) {
+      return `https://wa.me/${whatsapp}?text=${encodeURIComponent("Olá, Arena Shopp! Quero encomendar: " + message + ". Confirmem por favor a disponibilidade e os dados necessários.")}`;
+    }
+    const productGrid = document.getElementById("product-grid");
+    packages.forEach(item => {
+      const card = document.createElement("article");
+      card.className = "product";
+      card.innerHTML = `
+        <div class="gem" aria-hidden="true">💎</div>
+        <h3>${item.diamonds} diamantes</h3>
+        <div class="bonus">${item.bonus}</div>
+        <div class="price">${item.price}</div>
+        <a class="btn btn-primary" href="${waLink(item.diamonds + " diamantes (" + item.bonus + ") por " + item.messagePrice + " Kz")}" target="_blank" rel="noopener">Encomendar pelo WhatsApp</a>
+      `;
+      productGrid.appendChild(card);
+    });
+    const otherGrid = document.getElementById("other-grid");
+    extras.forEach(item => {
+      const card = document.createElement("article");
+      card.className = "other-card";
+      card.innerHTML = `<h3>${item.name}</h3><strong>${item.price}</strong><p><a class="btn btn-outline" href="${waLink(item.message)}" target="_blank" rel="noopener">Consultar pelo WhatsApp</a></p>`;
+      otherGrid.appendChild(card);
+    });
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
