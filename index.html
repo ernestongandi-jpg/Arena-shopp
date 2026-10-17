@@ -247,5 +247,132 @@
     });
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+  
+<style>
+  .arena-order {
+    max-width: 520px;
+    margin: 30px auto;
+    padding: 22px;
+    border: 1px solid #214567;
+    border-radius: 16px;
+    background: #0c1727;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+  }
+  .arena-order h2 { color: #12a9ff; }
+  .arena-order label {
+    display: block;
+    margin: 16px 0 8px;
+    font-weight: bold;
+  }
+  .arena-order select,
+  .arena-order input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px;
+    border-radius: 9px;
+    border: 1px solid #456078;
+    background: #101f33;
+    color: white;
+    font-size: 16px;
+  }
+  .arena-order button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 14px;
+    border: 0;
+    border-radius: 9px;
+    background: #12a95b;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .arena-order .help {
+    color: #b8c8d8;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  #arena-feedback { margin-top: 12px; }
+</style>
+
+<section class="arena-order">
+  <h2>Encomendar diamantes</h2>
+  <p>Escolhe o pacote e introduz o teu ID de jogador.</p>
+
+  <form id="arena-form">
+    <label for="arena-product">Escolhe o produto</label>
+    <select id="arena-product" required>
+      <option value="100 diamantes|1300">100 diamantes — 1.300 Kz</option>
+      <option value="310 diamantes|3600">310 diamantes — 3.600 Kz</option>
+      <option value="520 diamantes|5350">520 diamantes — 5.350 Kz</option>
+      <option value="1060 diamantes|11500">1.060 diamantes — 11.500 Kz</option>
+      <option value="2180 diamantes|21300">2.180 diamantes — 21.300 Kz</option>
+      <option value="5600 diamantes|53000">5.600 diamantes — 53.000 Kz</option>
+    </select>
+
+    <label for="arena-id">ID de jogador Free Fire</label>
+    <input
+      id="arena-id"
+      type="text"
+      inputmode="numeric"
+      autocomplete="off"
+      placeholder="Ex.: 123456789"
+      pattern="[0-9]{6,15}"
+      minlength="6"
+      maxlength="15"
+      required
+    >
+
+    <p class="help">
+      Introduz apenas números, entre 6 e 15 algarismos.
+      Confirma o ID no teu perfil do jogo. Nunca introduzas
+      a tua palavra-passe.
+    </p>
+
+    <button type="submit">Encomendar pelo WhatsApp</button>
+    <p id="arena-feedback" role="status"></p>
+  </form>
+</section>
+
+<script>
+(function () {
+  const form = document.getElementById("arena-form");
+  if (!form) return;
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const productValue =
+      document.getElementById("arena-product").value;
+    const playerId =
+      document.getElementById("arena-id").value.trim();
+    const feedback =
+      document.getElementById("arena-feedback");
+
+    if (!/^[0-9]{6,15}$/.test(playerId)) {
+      feedback.textContent =
+        "Verifica o ID: introduz apenas 6 a 15 números.";
+      return;
+    }
+
+    const parts = productValue.split("|");
+    const product = parts[0];
+    const price = Number(parts[1]);
+
+    const message =
+      "Olá! Quero encomendar na Arena Shopp.\n" +
+      "Produto: " + product + "\n" +
+      "Preço: " + price.toLocaleString("pt-PT") + " Kz\n" +
+      "ID de jogador Free Fire: " + playerId;
+
+    const whatsapp =
+      "https://wa.me/244930412025?text=" +
+      encodeURIComponent(message);
+
+    window.location.href = whatsapp;
+  });
+})();
+</script>
+
 </body>
 </html>
